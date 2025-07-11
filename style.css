@@ -67,8 +67,8 @@ body {
 
 .valentines {
     position: relative;
-    width: 400px; /* تم تعديل العرض هنا */
-    height: 325px; /* تم تعديل الارتفاع هنا */
+    width: 500px; /* زيادة كبيرة في العرض هنا */
+    height: 405px; /* زيادة كبيرة في الارتفاع هنا (حافظنا على نسبة 16:13 تقريباً) */
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -114,7 +114,7 @@ body {
 
 .card {
     background-color: #fffaf0; /* لون أوف وايت للبطاقة */
-    padding: 30px 40px; /* تم تعديل البادنج هنا */
+    padding: 35px 50px; /* زيادة البادنج هنا ليتناسب مع الحجم الجديد */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -148,7 +148,7 @@ body {
 }
 
 .valentines.open .card {
-    transform: translateY(-25px); /* تم تعديل الرفع هنا */
+    transform: translateY(-35px); /* تم تعديل الرفع هنا ليتناسب مع الحجم الجديد */
     opacity: 1;
     z-index: 5;
     transition-delay: 0.3s;
@@ -156,7 +156,7 @@ body {
 
 .card .text {
     color: #4b0082;
-    font-size: clamp(1.2em, 6vw, 2.2em); /* تم تعديل قيم clamp هنا */
+    font-size: clamp(1.5em, 3vw, 2.8em); /* تم تعديل قيم clamp هنا لتكون أكبر */
     line-height: 1.4;
     font-weight: 700;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
@@ -178,8 +178,8 @@ body {
     bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
-    width: 380px; /* تم تعديل العرض هنا */
-    height: 50px; /* تم تعديل الارتفاع هنا */
+    width: 475px; /* تم تعديل العرض هنا ليتناسب مع حجم الظرف الجديد */
+    height: 60px; /* تم تعديل الارتفاع هنا */
     background: rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     filter: blur(15px);
