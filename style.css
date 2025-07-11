@@ -13,8 +13,14 @@ body {
 
 .container {
     perspective: 1000px;
-    z-index: 10; /* لجعل الظرف فوق الزخارف */
-    position: relative; /* لتمكين z-index */
+    z-index: 10;
+    position: relative;
+    /* لجعل البطاقة تتموضع بشكل صحيح داخل الـ container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* اجعل الكونتينر يأخذ كامل ارتفاع الشاشة */
 }
 
 /* حركة العوم للظرف */
@@ -67,8 +73,15 @@ body {
 
 .valentines {
     position: relative;
-    width: 500px; /* زيادة كبيرة في العرض هنا */
-    height: 405px; /* زيادة كبيرة في الارتفاع هنا (حافظنا على نسبة 16:13 تقريباً) */
+    /* التعديل الرئيسي هنا ليتناسب مع حجم الشاشة */
+    width: 70vw; /* 70% من عرض الشاشة */
+    max-width: 500px; /* لا تتجاوز 500 بكسل على الشاشات الكبيرة جداً */
+    height: calc(70vw * (13 / 16)); /* الحفاظ على نسبة العرض إلى الارتفاع (تقريبا) */
+    max-height: 405px; /* لا تتجاوز 405 بكسل على الشاشات الكبيرة جداً */
+    /* ضمان ألا تصبح البطاقة كبيرة جداً على الشاشات العريضة جداً */
+    min-width: 280px; /* حد أدنى للعرض حتى لا تصبح صغيرة جداً على الجوالات */
+    min-height: 227px; /* حد أدنى للارتفاع */
+    
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -114,7 +127,8 @@ body {
 
 .card {
     background-color: #fffaf0; /* لون أوف وايت للبطاقة */
-    padding: 35px 50px; /* زيادة البادنج هنا ليتناسب مع الحجم الجديد */
+    /* البادنج أيضاً يجب أن يكون متجاوباً */
+    padding: clamp(20px, 6vw, 50px); /* حجم بادنج يتراوح من 20px إلى 50px حسب عرض الشاشة */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -148,7 +162,8 @@ body {
 }
 
 .valentines.open .card {
-    transform: translateY(-35px); /* تم تعديل الرفع هنا ليتناسب مع الحجم الجديد */
+    /* قيمة الرفع يجب أن تكون نسبية أيضاً أو ثابتة صغيرة */
+    transform: translateY(-10%); /* -10% من ارتفاع البطاقة نفسها */
     opacity: 1;
     z-index: 5;
     transition-delay: 0.3s;
@@ -156,9 +171,10 @@ body {
 
 .card .text {
     color: #4b0082;
-    font-size: clamp(1.5em, 3vw, 2.8em); /* تم تعديل قيم clamp هنا لتكون أكبر */
+    /* حجم الخط يتناسب مع البطاقة التي تتناسب مع الشاشة */
+    font-size: clamp(1.2em, 3.5vw, 2.2em); /* تعديل clamp ليتناسب بشكل أفضل */
     line-height: 1.4;
-    font-weight: 700;
+    font-weight: 600;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
     max-width: 100%;
     overflow-wrap: break-word;
@@ -178,8 +194,10 @@ body {
     bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
-    width: 475px; /* تم تعديل العرض هنا ليتناسب مع حجم الظرف الجديد */
-    height: 60px; /* تم تعديل الارتفاع هنا */
+    /* الظل يجب أن يتناسب أيضاً */
+    width: calc(70vw * 0.95); /* أقل قليلاً من عرض الظرف */
+    max-width: 475px; /* لا يتجاوز 475 بكسل */
+    height: clamp(40px, 10vw, 60px); /* ارتفاع يتناسب مع الشاشة */
     background: rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     filter: blur(15px);
@@ -245,7 +263,7 @@ body {
     animation: backgroundFloat 5s ease-in-out infinite alternate;
 }
 
-/* النجوم في الخلفية */
+/* النجوم في الخلفية - حافظنا على القيم الثابتة لأنها صغيرة ولن تتأثر كثيراً */
 .star-bg-1, .star-bg-2, .star-bg-3 {
     background-color: #ffe082;
     width: 20px;
@@ -262,7 +280,7 @@ body {
 .star-bg-3 { top: 40%; left: 5%; transform: scale(0.9); animation-delay: 2s; }
 
 
-/* الأزهار في الخلفية */
+/* الأزهار في الخلفية - حافظنا على القيم الثابتة أيضاً */
 .flower-1, .flower-2, .flower-3 {
     width: 40px;
     height: 40px;
