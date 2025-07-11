@@ -67,8 +67,8 @@ body {
 
 .valentines {
     position: relative;
-    width: 320px;
-    height: 260px; /* زيادة ارتفاع البطاقة هنا (كان 220px) */
+    width: 400px; /* تم تعديل العرض هنا */
+    height: 325px; /* تم تعديل الارتفاع هنا */
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -114,11 +114,11 @@ body {
 
 .card {
     background-color: #fffaf0; /* لون أوف وايت للبطاقة */
-    padding: 25px 30px; /* زيادة البادنج العلوي والسفلي قليلاً أيضاً */
+    padding: 30px 40px; /* تم تعديل البادنج هنا */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* يمكن تغييرها إلى flex-start إذا أردت النص يبدأ من الأعلى */
+    justify-content: center;
     align-items: center;
     text-align: center;
     z-index: 3;
@@ -127,8 +127,7 @@ body {
     transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.8s ease-in-out;
     border: 2px solid #ffb6c1;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* ابقِها مخفية لمنع شريط التمرير الافتراضي */
-    /* overflow-y: auto; */ /* يمكنك إلغاء التعليق على هذا السطر إذا كنت تريد شريط تمرير عمودي */
+    overflow: hidden;
 }
 
 .envelope-flap-top {
@@ -149,8 +148,7 @@ body {
 }
 
 .valentines.open .card {
-    /* ترتفع البطاقة أقل قليلاً لتناسب الارتفاع الجديد */
-    transform: translateY(-10px); /* كانت -20px، تم تعديلها */
+    transform: translateY(-25px); /* تم تعديل الرفع هنا */
     opacity: 1;
     z-index: 5;
     transition-delay: 0.3s;
@@ -158,21 +156,20 @@ body {
 
 .card .text {
     color: #4b0082;
-    /* الحفاظ على clamp ولكن يمكن تعديل القيم إذا لزم الأمر */
-    font-size: clamp(1.1em, 2.5vw, 1.8em);
+    font-size: clamp(1.2em, 6vw, 2.2em); /* تم تعديل قيم clamp هنا */
     line-height: 1.4;
-    font-weight: 600;
+    font-weight: 700;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
     max-width: 100%;
     overflow-wrap: break-word;
-    height: 100%; /* تأكد من أن ارتفاع محتوى النص يملأ الـ padding المتاح */
-    display: flex; /* لجعل الفقرات تتوزع داخلها */
+    height: 100%;
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* لتوسيط النص عموديا داخل المساحة المتاحة */
+    justify-content: center;
 }
 
 .card .text p {
-    margin: 5px 0; /* هامش بسيط بين الفقرات */
+    margin: 5px 0;
     padding: 0;
 }
 
@@ -181,8 +178,8 @@ body {
     bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
-    width: 300px;
-    height: 40px;
+    width: 380px; /* تم تعديل العرض هنا */
+    height: 50px; /* تم تعديل الارتفاع هنا */
     background: rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     filter: blur(15px);
